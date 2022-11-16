@@ -1,7 +1,9 @@
 import { useState } from "react";
+import Highlight from "./Highlight";
 
 function HadisView(props) {
     const [hadisText, setHadisText] = useState("");
+    const words = props.words;
     const getHadisText = (tag) => {
         let book = tag.substring(0, 3);
         let hadis = tag.substring(4, tag.length);
@@ -25,7 +27,7 @@ function HadisView(props) {
             {getHadisText(props.tag)}
             {props.tag}
             <br></br>
-            {hadisText}
+            {hadisText.split(" ").map(word => <Highlight word={word} mark={words} />)}
         </div>
     );
 }
