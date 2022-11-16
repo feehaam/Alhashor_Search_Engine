@@ -1,24 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import HadisView from "./HadisView";
 
 function App() {
   const [wordmap, setWordmap] = useState({});
-  const [hadismap, setHadismap] = useState({});
   const [substring, setSubstring] = useState({});
-
   const [findHadis, setFindHadis] = useState([]);
 
   useEffect(() => {
     let url = "wordmap.json";
     fetch(url).then((res) => res.json()).then((data) => {
       setWordmap(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    let url = "hadismap.json";
-    fetch(url).then((res) => res.json()).then((data) => {
-      setHadismap(data);
     });
   }, []);
 
@@ -30,7 +22,6 @@ function App() {
   }, []);
 
   const wordMapObj = new Map(Object.entries(wordmap));
-  const hadisMapObj = new Map(Object.entries(hadismap));
   const substringObj = new Map(Object.entries(substring));
 
   const hadisSet = new Set();
@@ -61,15 +52,9 @@ function App() {
 
   const addSubstringWords = (word) => {
     let similarWords = substringObj.get(word);
-    for(let i=0; i<similarWords.length; i++){
+    for (let i = 0; i < similarWords.length; i++) {
       addHadisTagInResult(similarWords[i]);
     }
-  }
-
-  const getHadis = (tag) =>{
-    console.log(tag);
-    let hadisText = hadisMapObj.get(tag); 
-    return hadisText;
   }
 
   return (
@@ -83,10 +68,7 @@ function App() {
       Absolute result: {absoluteResult} <br></br>
       {findHadis?.map(
         (hadis) => (
-          <ul>
-            <li >{hadis}</li>
-            {getHadis(hadis)}
-          </ul>
+          <HadisView tag={hadis} />
         )
       )}
     </div>
