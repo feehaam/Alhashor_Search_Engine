@@ -45,7 +45,7 @@ function App() {
       let word = words[i];
       addHadisTagInResult(word);
       absoluteResult = hadisSet.length;
-      // addSubstringWords(word);
+      addSubstringWords(word);
     }
     let hadisArray = Array.from(hadisSet);
     setFindHadis(hadisArray);
