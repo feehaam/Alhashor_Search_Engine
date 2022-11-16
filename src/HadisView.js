@@ -15,7 +15,6 @@ function HadisView(props) {
         }
         let url = "json/hadis/" + book + "/" + hadis + "/text.txt";
         fetch(url).then((res) => res.json()).then((data) => {
-            console.log(data);
             setHadisText(data);
         });
     }

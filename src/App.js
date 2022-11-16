@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import HadisView from "./HadisView";
+import Search from "./Search";
 
 function App() {
   const [wordmap, setWordmap] = useState({});
@@ -60,17 +61,7 @@ function App() {
   return (
     <div className="App">
       <h2>Hadis Engine</h2>
-      <form onSubmit={find}>
-        <input name="search" type={"text"}></input>
-        <input type="submit" value="Search" />
-      </form>
-      Total result found: {findHadis.length} <br></br>
-      Absolute result: {absoluteResult} <br></br>
-      {findHadis?.map(
-        (hadis) => (
-          <HadisView tag={hadis} />
-        )
-      )}
+      <Search />
     </div>
   );
 }
