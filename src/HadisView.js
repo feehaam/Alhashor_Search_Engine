@@ -22,8 +22,10 @@ function HadisView(props) {
 
     return (
         <div>
-            {props.tag}
+            <br></br>
             {getHadisText(props.tag)}
+            {props.tag}
+            <br></br>
             {hadisText}
         </div>
     );
