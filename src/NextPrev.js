@@ -1,3 +1,6 @@
+import './NextPrev.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function NextPrev({ page, setPage, allResults, setDisplayHadis, resultCount }) {
 
     function prev() {
@@ -30,8 +33,17 @@ function NextPrev({ page, setPage, allResults, setDisplayHadis, resultCount }) {
 
     return (
         <div>
-            <button type='button' onClick={prev}>Prev</button>
-            <button type='button' onClick={next}>Next</button>
+            <table width={"100%"}>
+                <tr>
+                    <td>
+                        <button type='button' className='pn btn btn-danger' onClick={prev}>Prev</button>
+                    </td>
+                    <td>
+
+                        <button type='button' className='pn btn btn-success' onClick={next}>Next</button>
+                    </td>
+                </tr>
+            </table>
         </div>
     );
 }

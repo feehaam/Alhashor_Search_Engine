@@ -1,11 +1,14 @@
 import { useState } from "react";
 import HadisView from "./HadisView";
 import NextPrev from "./NextPrev";
+import React from 'react';
+import "./Search.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import getNum from "./EngToBng";
 
 function Search() {
 
-    let results = new Map()
-    let ar = [];
+    let results = new Map();
     const [allResults, setAllResults] = useState([]);
     const [page, setPage] = useState(0);
     const [displayHadis, setDisplayHadis] = useState([]);
@@ -54,7 +57,7 @@ function Search() {
             await fetch(wordPath).then((res) => res.json()).then((data) => {
                 const tagMap = new Map(Object.entries(data));
                 let tagArray = tagMap.get(word);
-                if (tagArray != null){
+                if (tagArray != null) {
                     for (let i = 0; i < tagArray.length; i++) {
                         let tag = tagArray[i];
                         tags.add(tag);
@@ -66,7 +69,7 @@ function Search() {
                     await fetch(subPath).then((res) => res.json()).then(async (data) => {
                         const submap = new Map(Object.entries(data));
                         let parents = submap.get(word);
-                        if (parents != null){
+                        if (parents != null) {
                             for (let i = 0; i < parents.length; i++) {
                                 let par = parents[i];
                                 let parPath = "json/tags/" + par.substring(0, 2) + ".json";
@@ -98,7 +101,7 @@ function Search() {
                     hadisSet.add(key);
                     value = value + 1;
                 }
-                ar = Array.from(hadisSet)
+                let ar = Array.from(hadisSet)
                 setAllResults(ar);
                 let toDisplay = [];
                 for (let i = 0; i < 20 && i < ar.length; i++) {
@@ -110,17 +113,20 @@ function Search() {
         }
     };
 
-    let firstHadisIdx = 0;
     let lastHadisIdx = 0;
 
     // RETURN 
     return (
         <div>
-            <form onSubmit={scan}>
-                <input name="search" type={"text"} />
-                <input type="submit" value="Search" />
+            <form onSubmit={scan} className="sc">
+                <div className="info">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করুন।</div>
+                <hr></hr>
+                <input name="search" type={"text"} className={"sb"} /><br></br>
+                <input type="submit" className="s" value="Search" />
             </form>
-            {resultCount > 0 ? "Total Results Found: " + resultCount : ""}
+            {resultCount > 0 ? <div className="count">{"মোট " + getNum(resultCount.toString()) + " টি হাদিস পাওয়া গেছে "}
+                <br /><b>
+                {getNum((page * 20 + 1).toString()) + " - " + getNum((page * 20 + 20).toString()) + " পর্যন্ত দেখানো হচ্ছে"} </b></div> : ""}
             {displayHadis?.map(
                 (hadis) => (
                     <HadisView tag={hadis} words={searchedWords} />
