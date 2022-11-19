@@ -125,8 +125,8 @@ function Search() {
                 <input type="submit" className="s" value="Search" />
             </form>
             {resultCount > 0 ? <div className="count">{"মোট " + getNum(resultCount.toString()) + " টি হাদিস পাওয়া গেছে "}
-                <br /><b>
-                {getNum((page * 20 + 1).toString()) + " - " + getNum((page * 20 + 20).toString()) + " পর্যন্ত দেখানো হচ্ছে"} </b></div> : ""}
+                <br/><b>
+                    {getNum((page * 20 + 1).toString()) + " - " + getNum((page * 20 + 20).toString()) + " পর্যন্ত দেখানো হচ্ছে"} </b></div> : ""}
             {displayHadis?.map(
                 (hadis) => (
                     <HadisView tag={hadis} words={searchedWords} />

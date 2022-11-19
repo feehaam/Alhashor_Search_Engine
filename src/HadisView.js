@@ -34,7 +34,7 @@ function HadisView(props) {
     }
 
     return (
-        <div>
+        <div className="hvc">
             {getHadisText(props.tag)}
             <br></br>
             <div className="card text-dark bg-light m-1">

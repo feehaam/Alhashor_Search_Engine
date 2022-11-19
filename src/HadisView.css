@@ -1,3 +1,8 @@
+.hvc {
+    max-width: 1200px;
+    margin:auto
+}
+
 .h-text {
     text-align: justify;
     text-justify: inter-word;
@@ -20,7 +25,7 @@
     border: 1px solid rgb(255, 255, 255);
 }
 
-.more{
+.more {
     text-align: center;
     background-image: linear-gradient(rgb(250, 249, 249), rgb(224, 224, 224));
     border-radius: 5px;

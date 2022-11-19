@@ -1,0 +1,81 @@
+.select {
+    margin: 10px;
+    background-color: #ffcccc;
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+
+.bcontainer {
+    text-align: center;
+}
+
+.book {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #ccc;
+}
+
+.book-on {
+    background-color: black;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(57, 57, 57);
+    color: white;
+}
+
+.headline {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.title {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgb(57, 57, 57);
+    border: 1px solid #ccc;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.tcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+
+.titem {
+    margin: 5px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    border-bottom: 1px solid #aaa;
+}
+
+.titem:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.inp {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 75px;
+}
