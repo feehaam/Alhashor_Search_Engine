@@ -42,7 +42,7 @@ function HadisView(props) {
                 <div class="card-body">
                     <div className="h-text">
                         {toShow.split(" ").map(word => <Highlight word={word} mark={words} />)}
-                        {toShow.length != hadisText.length ? <div className="more" onClick={expand}>সম্পূর্ণ হাদীস দেখুন</div> : ""}
+                        {toShow.length !== hadisText.length ? <div className="more" onClick={expand}>সম্পূর্ণ হাদীস দেখুন</div> : ""}
                     </div>
                 </div>
                 <div class="card-footer">

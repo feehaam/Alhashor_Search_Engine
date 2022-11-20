@@ -32,7 +32,7 @@ function NextPrev({ page, setPage, allResults, setDisplayHadis, resultCount }) {
     }
 
     return (
-        <div>
+        <div className='npc'>
             <table width={"100%"}>
                 <tr>
                     <td>
