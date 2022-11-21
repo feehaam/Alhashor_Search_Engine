@@ -1,19 +1,18 @@
 import { useState } from "react";
 import IndexRow from "./IndexRow";
 
-function IndexItem({ index, results }) {
+function IndexItem({ index, results, count }) {
     const [display, setDisplay] = useState(0);
     const [hadisList, setHadisList] = useState([]);
-    let hadis = []
+
     let x = []
     for (let i = 0; i < index.length; i++) {
-        hadis[i] = results.get(index[i])
         x[i] = i
     }
 
     function updateHadisList(id){
         setDisplay(1);
-        setHadisList(hadis[id])
+        setHadisList(results.get(id));
     }
 
     return (
@@ -25,7 +24,7 @@ function IndexItem({ index, results }) {
                         <div></div>
                         <div>
                             {x.map((i) => {
-                                return <IndexRow id={i} item={index[i]} count={hadis[i].length} updateHadisList={updateHadisList} />
+                                return <IndexRow item={index[i]} count={count[i]} updateHadisList={updateHadisList} />
                             })}
                         </div>
                     </div>

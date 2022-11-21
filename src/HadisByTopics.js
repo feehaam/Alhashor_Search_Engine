@@ -24,8 +24,10 @@ function Topics() {
                     add a component
     */
 
+    const [count, setCount] = useState([])
 
     async function loadIndex() {
+        let C = []
         for (let i = 0; i < index.length; i++) {
             let words = index[i].split(" ");
             let tags = new Set();
@@ -44,10 +46,8 @@ function Topics() {
                     let ar = Array.from(tags)
                     results.set(word, ar);
                     setRes(results)
-                    if (i == index.length - 1) {
-                        // console.log("Done..............");
-                        // console.log(res); 
-                    }
+                    C[i] = ar.length;
+                    setCount(C);
                 })
             }
         }
@@ -57,7 +57,7 @@ function Topics() {
         <div>
             <div class="container">
 
-                <IndexItem index={index} results={res} />
+                <IndexItem index={index} results={res} count={count} />
 
             </div>
         </div>

@@ -1,6 +1,8 @@
-function IndexRow({id, item, count, updateHadisList}){
+import { useState } from "react";
+
+function IndexRow({item, count, updateHadisList}){
     return (
-        <div onClick={()=>{updateHadisList(id)}}>
+        <div onClick={()=>{updateHadisList(item)}}>
             {item}-------({count})<br></br>
         </div>
     );
