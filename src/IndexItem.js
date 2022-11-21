@@ -1,16 +1,18 @@
 import { useState } from "react";
+import HadisByTopicPagi from "./HadisByTopicsPagi";
 import IndexRow from "./IndexRow";
 
 function IndexItem({ index, results, count }) {
     const [display, setDisplay] = useState(0);
     const [hadisList, setHadisList] = useState([]);
+    const [td, setTd] = useState([]);
 
     let x = []
     for (let i = 0; i < index.length; i++) {
         x[i] = i
     }
 
-    function updateHadisList(id){
+    function updateHadisList(id) {
         setDisplay(1);
         setHadisList(results.get(id));
     }
@@ -18,7 +20,6 @@ function IndexItem({ index, results, count }) {
     return (
         <>
             <div>
-
                 {display === 0 ?
                     <div>
                         <div></div>
@@ -28,11 +29,11 @@ function IndexItem({ index, results, count }) {
                             })}
                         </div>
                     </div>
-                    : 
+                    :
                     <div>
-                        <div onClick={()=>setDisplay(0)}>Return to previous pagae</div>
+                        <div onClick={() => setDisplay(0)}>Return to previous pagae</div>
                         <div>
-                            {hadisList}
+                            <HadisByTopicPagi hadisList={hadisList} />
                         </div>
                     </div>
                 }
