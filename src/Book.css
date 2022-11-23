@@ -66,11 +66,13 @@
     background-color: white;
     border-radius: 5px;
     border-bottom: 1px solid #aaa;
+    font-family: cursive;
+    background-color: rgb(75, 74, 74);
+    color: white;
 }
 
 .titem:hover {
     background-color: black;
-    color: white;
     cursor: pointer;
 }
 

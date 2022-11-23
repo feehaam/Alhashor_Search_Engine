@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./Navbar";
 import { useState } from "react";
 import Home from "./Home";
-import Topics from "./HadisByTopics";
 import Books from "./Books";
+import Topics from "./Topics/Topics";
 
 function App() {
   const [display, setDisplay] = useState(0);

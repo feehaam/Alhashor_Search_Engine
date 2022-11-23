@@ -36,11 +36,11 @@ function NextPrev({ page, setPage, allResults, setDisplayHadis, resultCount }) {
             <table width={"100%"}>
                 <tr>
                     <td>
-                        <button type='button' className='pn btn btn-danger' onClick={prev}>Prev</button>
+                        <button type='button' className='pn btn' onClick={prev}>&#171; আগের পৃষ্ঠা</button>
                     </td>
                     <td>
 
-                        <button type='button' className='pn btn btn-success' onClick={next}>Next</button>
+                        <button type='button' className='pn btn' onClick={next}>পরের পৃষ্ঠা &#187;</button>
                     </td>
                 </tr>
             </table>
