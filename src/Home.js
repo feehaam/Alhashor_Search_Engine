@@ -1,5 +1,3 @@
-import Loading from "./Loading";
-
 function Home(props) {
     return (
         <div>
@@ -12,7 +10,7 @@ function Home(props) {
                         <div class="container">
                             <div class="row">
                                 <div class="col img-container">
-                                    <img src="/photos/search.png" class="card-img-top card-pic"></img>
+                                    <img src="/photos/search.png" alt="search" class="card-img-top card-pic"></img>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
@@ -35,7 +33,7 @@ function Home(props) {
                         <div class="container">
                             <div class="row">
                                 <div class="col img-container">
-                                    <img src="/photos/topics.jpg" class="card-img-top card-pic"></img>
+                                    <img src="/photos/topics.jpg" alt="topics" class="card-img-top card-pic"></img>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
@@ -61,7 +59,7 @@ function Home(props) {
                         <div class="container">
                             <div class="row">
                                 <div class="col img-container">
-                                    <img src="/photos/book.jpg" class="card-img-top card-pic"></img>
+                                    <img src="/photos/book.jpg" alt="book" class="card-img-top card-pic"></img>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">
@@ -82,7 +80,7 @@ function Home(props) {
                         <div class="container">
                             <div class="row">
                                 <div class="col img-container">
-                                    <img src="/photos/cs.jpg" class="card-img-top card-pic"></img>
+                                    <img src="/photos/cs.jpg" alt="coming soon" class="card-img-top card-pic"></img>
                                 </div>
                                 <div class="col">
                                     <div class="card-body">

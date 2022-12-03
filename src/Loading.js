@@ -1,7 +1,7 @@
 function Loading () {
     return (
         <div>
-            <img src="../photos/loading.gif"></img>
+            <img src="../photos/loading.gif" alt="loading..."></img>
         </div>
     );
 }

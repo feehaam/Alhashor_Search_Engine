@@ -17,10 +17,10 @@ function App() {
   return (
     <div>
       <NavBar setDisplay={setDisplay}/>
-      {display == 0 ? <Home setDisplay={setDisplay} /> : ""}
-      {display == 1 ? <Search /> : ""}
-      {display == 2 ? <Topics /> : ""}
-      {display == 3 ? <Books /> : ""}
+      {display === 0 ? <Home setDisplay={setDisplay} /> : ""}
+      {display === 1 ? <Search /> : ""}
+      {display === 2 ? <Topics /> : ""}
+      {display === 3 ? <Books /> : ""}
     </div>
   );
 }

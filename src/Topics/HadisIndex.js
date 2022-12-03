@@ -15,8 +15,7 @@ function HadisIndex({ selectTopic, setTopic, setPage }) {
         "পবিত্রতা ",
         "বিশ্বাস ",
         "বিতর নামায",
-        "কদর ",
-        "নামায নামায নামায নামায নামায নামায নামায"
+        "কদর "
     ]
     index.sort();
     return (
