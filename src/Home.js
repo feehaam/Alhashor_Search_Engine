@@ -1,3 +1,5 @@
+import Loading from "./Loading";
+
 function Home(props) {
     return (
         <div>

@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Navbar.css';
 
 function NavBar(props) {
     return (
@@ -12,7 +13,7 @@ function NavBar(props) {
                 <Container>
                     <Navbar.Brand onClick={()=>{
                             props.setDisplay(0);
-                        }}>Boierkotha</Navbar.Brand>
+                        }} className='hm'>Boierkotha</Navbar.Brand>
                     <Nav className="navbar-right">
                         <Nav.Link onClick={()=>{
                             props.setDisplay(0);

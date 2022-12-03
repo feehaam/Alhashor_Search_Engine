@@ -6,7 +6,7 @@ import './Topics.css'
 function Topics() {
 
     let results = new Map();
-    const [topic, setTopic] = useState("সূচিপত্র"); 
+    const [topic, setTopic] = useState("সূচিপত্র");
     const [allResults, setAllResults] = useState([]);
     const [page, setPage] = useState(0);
     const [displayHadis, setDisplayHadis] = useState([]);
@@ -30,27 +30,25 @@ function Topics() {
                     }
                 }
             }).then(async () => {
-                if (words.length < 8) {
-                    let subPath = "json/substring/" + word.substring(0, 2) + ".json";
-                    await fetch(subPath).then((res) => res.json()).then(async (data) => {
-                        const submap = new Map(Object.entries(data));
-                        let parents = submap.get(word);
-                        if (parents != null) {
-                            for (let i = 0; i < parents.length; i++) {
-                                let par = parents[i];
-                                let parPath = "json/tags/" + par.substring(0, 2) + ".json";
-                                await fetch(parPath).then((res) => res.json()).then((data) => {
-                                    const parTagMap = new Map(Object.entries(data));
-                                    let parTagArray = parTagMap.get(par);
-                                    for (let j = 0; j < parTagArray.length; j++) {
-                                        let parTag = parTagArray[j];
-                                        tags.add(parTag);
-                                    }
-                                });
-                            }
+                let subPath = "json/substring/" + word.substring(0, 2) + ".json";
+                await fetch(subPath).then((res) => res.json()).then(async (data) => {
+                    const submap = new Map(Object.entries(data));
+                    let parents = submap.get(word);
+                    if (parents != null) {
+                        for (let i = 0; i < parents.length; i++) {
+                            let par = parents[i];
+                            let parPath = "json/tags/" + par.substring(0, 2) + ".json";
+                            await fetch(parPath).then((res) => res.json()).then((data) => {
+                                const parTagMap = new Map(Object.entries(data));
+                                let parTagArray = parTagMap.get(par);
+                                for (let j = 0; j < parTagArray.length; j++) {
+                                    let parTag = parTagArray[j];
+                                    tags.add(parTag);
+                                }
+                            });
                         }
-                    });
-                }
+                    }
+                });
             }).then(async () => {
                 for (const tag of tags) {
                     let freq = 0;
@@ -59,13 +57,10 @@ function Topics() {
                     results.set(tag, freq)
                 }
             }).then(async () => {
-                results[Symbol.iterator] = function* () {
-                    yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
-                }
                 let hadisSet = new Set();
                 for (let [key, value] of results) {
                     // The only difference against search is - this condition
-                    if (value === words.length)
+                    if (value === i + 1)
                         hadisSet.add(key);
                     value = value + 1;
                 }
@@ -88,10 +83,10 @@ function Topics() {
                     <div className="idx">
                         {topic}
                     </div>
-                    <HadisIndex setTopic={setTopic} selectTopic={selectTopic} />
+                    <HadisIndex setTopic={setTopic} selectTopic={selectTopic} setPage={setPage} />
                 </div>
                 <div className="right">
-                    <HadisDisplay hadisList={displayHadis} page={page} setPage={setPage} allResults={allResults} setDisplayHadis={setDisplayHadis} resultCount={resultCount} />
+                    <HadisDisplay topic={topic} hadisList={displayHadis} page={page} setPage={setPage} allResults={allResults} setDisplayHadis={setDisplayHadis} resultCount={resultCount} />
                 </div>
             </div>
         </div>

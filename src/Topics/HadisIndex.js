@@ -1,6 +1,6 @@
 import './HadisIndex.css'
 
-function HadisIndex({ selectTopic, setTopic }) {
+function HadisIndex({ selectTopic, setTopic, setPage }) {
     const index = [
         "ঈমান",
         "নামায",
@@ -15,14 +15,15 @@ function HadisIndex({ selectTopic, setTopic }) {
         "পবিত্রতা ",
         "বিশ্বাস ",
         "বিতর নামায",
-        "কদর "
+        "কদর ",
+        "নামায নামায নামায নামায নামায নামায নামায"
     ]
     index.sort();
     return (
         <>
             <div class="scroller">
                 {index.map((item) => {
-                    return <div className='item' onClick={() => { selectTopic(item); setTopic(item) }}>{item}</div>
+                    return <div className='item' onClick={() => { selectTopic(item); setTopic(item); setPage(0) }}>{item}</div>
                 })}
             </div>
         </>
