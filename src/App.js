@@ -9,6 +9,11 @@ import Topics from "./Topics/Topics";
 
 function App() {
   const [display, setDisplay] = useState(0);
+  window.history.pushState(this, null, null)
+    window.history.pushState(this, null, null)
+    window.history.pushState(this, null, null)
+    window.history.pushState(this, null, null)
+    window.history.pushState(this, null, null)
   return (
     <div>
       <NavBar setDisplay={setDisplay}/>

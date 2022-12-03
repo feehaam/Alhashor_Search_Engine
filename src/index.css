@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  background-color: #333;
+  border-radius: 100%;
+  color: white;
+  text-shadow: 1px 1px 2px #aaa;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px dashed white;
+  box-shadow: 2px 2px 5px gray;
+}
+
+.top:hover{
+  background-color: #338833;
+  border: 2px dotted white;
+  cursor: pointer;
+}
