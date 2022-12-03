@@ -106,7 +106,7 @@ function Books() {
                         <div class="titem">
                             <div onClick={() => { changePage(-1) }}>&#171; Prev</div>
                         </div>
-                        <div class="titem">পৃষ্ঠা {getNum((page + 1).toString())}/{getNum(l.toString())}</div>
+                        <div class="titem">{getNum((page * 20+1).toString())}-{getNum(((page+1) * 20).toString())}/{getNum(l.toString())}</div>
                         <div class="titem"><div onClick={() => { changePage(1) }}>Next &#187;</div></div>
                         <div class="titem">
                             <div onClick={() => { multiPage(10) }}>+10</div>

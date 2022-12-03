@@ -14,7 +14,7 @@ function HadisDisplay({ topic, hadisList, page, setPage, allResults, setDisplayH
             {
                 hadisList?.map(
                     (hadis) => (
-                        <HadisView tag={hadis} words={[]} />
+                        <HadisView tag={hadis} words={topic.split(" ")} />
                     )
                 )
             }
