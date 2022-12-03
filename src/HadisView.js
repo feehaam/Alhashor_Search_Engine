@@ -3,6 +3,7 @@ import Highlight from "./Highlight";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HadisView.css'
 import getNum, { getBook } from "./EngToBng";
+import Loading from "./Loading";
 
 var limit = 600;
 function HadisView(props) {
@@ -23,13 +24,13 @@ function HadisView(props) {
         let url = "json/hadis/" + book + "/" + hadis + "/text.txt";
         fetch(url).then((res) => res.json()).then((data) => {
             setHadisText(data);
-            if(hadisText.length < limit) setToShow(hadisText);
-            else setToShow(hadisText.substring(0, limit)+"....");
+            if (hadisText.length < limit) setToShow(hadisText);
+            else setToShow(hadisText.substring(0, limit) + "....");
         });
     }
 
-    function expand(){
-        limit = hadisText.length+4;
+    function expand() {
+        limit = hadisText.length + 4;
         setToShow(hadisText);
     }
 
@@ -41,7 +42,9 @@ function HadisView(props) {
                 <h5 class="card-header">{getBook(props.tag)}{getNum(props.tag.substring(4, props.tag.length))}</h5>
                 <div class="card-body">
                     <div className="h-text">
-                        {toShow.split(" ").map(word => <Highlight word={word} mark={words} />)}
+                        {toShow === null || toShow.length === 0 ? <Loading /> :
+                            toShow.split(" ").map(word => <Highlight word={word} mark={words} />)
+                        }
                         {toShow.length !== hadisText.length ? <div className="more" onClick={expand}>সম্পূর্ণ হাদীস দেখুন</div> : ""}
                     </div>
                 </div>
