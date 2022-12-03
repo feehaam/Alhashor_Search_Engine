@@ -1,6 +1,7 @@
+import './Loading.css'
 function Loading () {
     return (
-        <div>
+        <div className='container'>
             <img src="../photos/loading.gif" alt="loading..."></img>
         </div>
     );

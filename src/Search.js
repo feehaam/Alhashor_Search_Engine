@@ -5,6 +5,8 @@ import React from 'react';
 import "./Search.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import getNum from "./EngToBng";
+import Loading from "./Loading";
+import Suggestions from "./Suggestions";
 
 function Search() {
 
@@ -14,6 +16,8 @@ function Search() {
     const [displayHadis, setDisplayHadis] = useState([]);
     const [resultCount, setResultCount] = useState(0);
     const [searchedWords, setSearchedWords] = useState([]);
+    const [searching, setSearching] = useState(0);
+    const [found, setFound] = useState(1);
 
     /*
         Clean the input
@@ -35,8 +39,18 @@ function Search() {
         Display items from ARRAY based on page number
     */
 
+    function setBox(input) {
+        document.getElementById("search").value = input;
+    }
+
     const scan = async (event) => {
         setPage(0);
+        setAllResults([]);
+        setDisplayHadis([]);
+        setResultCount(0);
+        setSearching(1);
+        setFound(0);
+
         event.preventDefault();
         let userText = event.target.search.value;
         if (userText == null || userText.lengh < 1)
@@ -109,6 +123,7 @@ function Search() {
                 }
                 setDisplayHadis(toDisplay);
                 setResultCount(ar.length);
+                setFound(ar.length);
             });
         }
     };
@@ -121,18 +136,22 @@ function Search() {
             <form onSubmit={scan} className="sc">
                 <div className="info">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করুন।</div>
                 <hr></hr>
-                <input name="search" type={"text"} className={"sb"} /><br></br>
+                <input id="search" name="search" type={"text"} className={"sb"} /><br></br>
                 <input type="submit" className="s" value="Search" />
+                {searching === 0 ? <Suggestions setBox={setBox} /> : ""}
             </form>
             {resultCount > 0 ? <div className="count">{"মোট " + getNum(resultCount.toString()) + " টি হাদিস পাওয়া গেছে "}
-                <br/><b>
-                    {getNum((page * 20 + 1).toString()) + " - " + ((page*20+20) < resultCount ? getNum((page * 20 + 20).toString()) : getNum(resultCount.toString())) + " পর্যন্ত দেখানো হচ্ছে"} </b></div> : ""}
+                <br /><b>
+                    {getNum((page * 20 + 1).toString()) + " - " + ((page * 20 + 20) < resultCount ? getNum((page * 20 + 20).toString()) : getNum(resultCount.toString())) + " পর্যন্ত দেখানো হচ্ছে"} </b></div> : ""}
             {displayHadis?.map(
                 (hadis) => (
                     <HadisView tag={hadis} words={searchedWords} />
                 )
             )}
-            {lastHadisIdx < resultCount ? <NextPrev page={page} setPage={setPage} allResults={allResults} setDisplayHadis={setDisplayHadis} resultCount={resultCount} /> : ""}
+            {lastHadisIdx < resultCount ? <NextPrev page={page} setPage={setPage} allResults={allResults} setDisplayHadis={setDisplayHadis} resultCount={resultCount} /> :
+                searching === 1 ? <Loading /> : ""
+            }
+            {found === 0 ? <div className="nf">কেবল মাত্র বাংলা লেখায় সার্চ করুন। কোনো ফলাফল না পাওয়া গেলে বানান পরিবর্তন করে লিখুন।</div> : ""}
         </div>
     );
 }

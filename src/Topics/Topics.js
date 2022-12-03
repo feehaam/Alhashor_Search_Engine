@@ -13,6 +13,8 @@ function Topics() {
     const [resultCount, setResultCount] = useState(0);
 
     async function selectTopic(userText) {
+        setAllResults([]);
+        setDisplayHadis([]);
         if (userText[0] === ' ') userText = userText.substring(1, userText.length);
         if (userText[userText.length - 1] === ' ') userText = userText.substring(0, userText.length - 1);
         let words = userText.split(" ");
