@@ -1,11 +1,11 @@
 import { useState } from "react";
-import HadisView from "./HadisView";
-import NextPrev from "./NextPrev";
+import HadisView from "../Helpers/HadisView";
+import NextPrev from "../Helpers/NextPrev";
 import React from 'react';
 import "./Search.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import getNum from "./EngToBng";
-import Loading from "./Loading";
+import getNum from "../Helpers/EngToBng";
+import Loading from "../Helpers/Loading";
 import Suggestions from "./Suggestions";
 
 function Search() {
@@ -134,7 +134,10 @@ function Search() {
     return (
         <div>
             <form onSubmit={scan} className="sc">
-                <div className="info">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করুন।</div>
+                <div className="info">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করুন।
+                <br></br>
+                <b>সমস্ত হাদীস বাংলায়, অতএব শুধু বাংলায় লিখে সার্চ করুন! </b>
+                </div>
                 <hr></hr>
                 <input id="search" name="search" type={"text"} className={"sb"} /><br></br>
                 <input type="submit" className="s" value="Search" />

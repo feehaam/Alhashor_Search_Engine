@@ -1,34 +1,36 @@
+import { Link } from "react-router-dom";
+import './Home.css'
+
 function Home(props) {
     return (
-        <div>
+        <div className="homeCont">
             <div class="row">
-                <div class="col-sm-6" onClick={() => {
-                    props.setDisplay(1);
-                }}>
-                    <div class="card m-2">
-                        <h5 class="card-header">Search Hadis</h5>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col img-container">
-                                    <img src="/photos/search.png" alt="search" class="card-img-top card-pic"></img>
-                                </div>
-                                <div class="col">
-                                    <div class="card-body">
-                                        <p class="card-text">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করে সেই বিষয়ের সমস্ত হাদীস দেখুন। </p>
-                                        <div onClick={() => {
-                                            props.setDisplay(1);
-                                        }} class="btn btn-success btn-full">হাদীস সার্চ</div>
+                <div class="col-sm-6" >
+                    <Link to={'/search'} className='link'>
+                        <div class="card m-2">
+                            <h5 class="card-header">Search Hadis</h5>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col img-container">
+                                        <img src="/photos/search.png" alt="search" class="card-img-top card-pic"></img>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <p class="card-text">হাদীসের ক্রম কিংবা বর্ণনাকারীর নাম দিয়ে হাদীস খুঁজুন। অথবা যেকোনো শব্দ/বিষয় কিংবা হাদীসের অংশ লিখে সার্চ করে সেই বিষয়ের সমস্ত হাদীস দেখুন। </p>
+                                            <div onClick={() => {
+                                                props.setDisplay(1);
+                                            }} class="btn btn-success btn-full">হাদীস সার্চ</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="card m-2" onClick={() => {
-                        props.setDisplay(2);
-                    }}>
+                    <div class="card m-2">
+                    <Link to={'/topics'} className='link'>
                         <h5 class="card-header">Hadis by topics</h5>
                         <div class="container">
                             <div class="row">
@@ -45,6 +47,7 @@ function Home(props) {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -52,9 +55,8 @@ function Home(props) {
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="card m-2" onClick={() => {
-                        props.setDisplay(3);
-                    }}>
+                    <div class="card m-2">
+                    <Link to={'/books'} className='link'>
                         <h5 class="card-header">Books</h5>
                         <div class="container">
                             <div class="row">
@@ -71,6 +73,7 @@ function Home(props) {
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     </div>
                 </div>
 

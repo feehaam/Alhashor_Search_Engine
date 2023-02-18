@@ -1,26 +1,31 @@
 import "./App.css";
-import Search from "./Search";
+import Search from "./Search/Search";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from "./Navbar";
+import NavBar from "./Navbar/Navbar";
 import { useState } from "react";
-import Home from "./Home";
-import Books from "./Books";
+import Books from "./Books/Books";
 import Topics from "./Topics/Topics";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "./Home/Home";
 
 function App() {
   const [display, setDisplay] = useState(0);
   window.history.pushState(this, null, null)
-    window.history.pushState(this, null, null)
-    window.history.pushState(this, null, null)
-    window.history.pushState(this, null, null)
-    window.history.pushState(this, null, null)
+  window.history.pushState(this, null, null)
+  window.history.pushState(this, null, null)
+  window.history.pushState(this, null, null)
+  window.history.pushState(this, null, null)
   return (
     <div>
-      <NavBar setDisplay={setDisplay}/>
-      {display === 0 ? <Home setDisplay={setDisplay} /> : ""}
-      {display === 1 ? <Search /> : ""}
-      {display === 2 ? <Topics /> : ""}
-      {display === 3 ? <Books /> : ""}
+      <NavBar setDisplay={setDisplay} />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/books' element={<Books />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/topics' element={<Topics />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

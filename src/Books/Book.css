@@ -1,10 +1,14 @@
-.select {
+.sel {
     margin: 10px;
-    background-color: #ffcccc;
+    background-color: #ffccc0;
     padding: 10px;
     border-radius: 10px;
     color: black;
     text-align: center;
+    font-size: 35px;
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 30px;
 }
 
 .bcontainer {
@@ -20,14 +24,19 @@
     box-shadow: 3px 3px 10px #ccc;
 }
 
+.book:hover{
+    background-color: #f1c6bb;
+}
+
 .book-on {
-    background-color: black;
+    background-color: #eb4e27;
     border: 1px solid #ccc;
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
     box-shadow: 3px 3px 10px rgb(57, 57, 57);
     color: white;
+    font-weight: bold;
 }
 
 .headline {
@@ -35,21 +44,19 @@
     margin: auto;
     margin-top: 10px;
     border: 1px solid #ccc;
-    background-color: #eee;
+    background-color: #D85A3B;
     border-radius: 15px;
     padding: 10px;
 }
 
 .title {
     width: 100%;
-    background-color: rgb(0, 0, 0);
     padding: 5px;
     text-align: center;
     font-weight: bold;
     font-size: 25px;
     border-radius: 10px;
-    box-shadow: 3px 3px 10px rgb(57, 57, 57);
-    border: 1px solid #ccc;
+    border: 1px solid #ff9f9f;
     color: white;
     margin-bottom: 5px;
 }
@@ -63,7 +70,6 @@
 .titem {
     margin: 5px;
     padding: 5px;
-    background-color: white;
     border-radius: 5px;
     border-bottom: 1px solid #aaa;
     font-family: cursive;

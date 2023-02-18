@@ -17,18 +17,19 @@ code {
   bottom: 20px;
   right: 20px;
   font-size: 50px;
-  background-color: #333;
+  background-color: #D85A3B;
   border-radius: 100%;
   color: white;
   text-shadow: 1px 1px 2px #aaa;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 2px dashed white;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: 2px solid white;
   box-shadow: 2px 2px 5px gray;
 }
 
 .top:hover{
-  background-color: #338833;
-  border: 2px dotted white;
+  background-color: white;
+  color: #D85A3B;
+  border: 2px solid #D85A3B;
   cursor: pointer;
 }

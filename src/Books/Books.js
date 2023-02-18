@@ -1,6 +1,6 @@
 import { useState } from "react";
-import getNum, { getBook } from "./EngToBng";
-import HadisView from "./HadisView";
+import getNum, { getBook } from "../Helpers/EngToBng";
+import HadisView from "../Helpers/HadisView";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Book.css'
 
@@ -67,7 +67,7 @@ function Books() {
 
     return (
         <div>
-            {show.length === 0 ? <div className="select">নিচে থেকে যেকোনো একটি বই ক্লিক করুন</div> : ""}
+            {show.length === 0 ? <div className="sel">নিচে থেকে যেকোনো একটি বই ক্লিক করুন</div> : ""}
             <div className="bcontainer">
                 {show.length > 0 && b === 0 ?
                     <button className="book-on" onClick={() => { chageBook(0) }}>বুখারি&nbsp;শরীফ</button> :
